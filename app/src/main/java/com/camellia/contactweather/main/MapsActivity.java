@@ -15,7 +15,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -85,15 +84,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         boolean isUpdate = getIntent().getBooleanExtra("isUpdate", false);
         if (isUpdate) {
-            double lat = getIntent().getDoubleExtra("latitude", 32);
-            double lon = getIntent().getDoubleExtra("longitude", 53);
+            double lat = getIntent().getDoubleExtra("latitude", 21.028333);
+            double lon = getIntent().getDoubleExtra("longitude", 105.854167);
             location = new LatLng(lat, lon);
         } else {
-            location = new LatLng(32, 53);
+            location = new LatLng(21.028333, 105.854167);
         }
 
         // Add a marker in Iran and move the camera
 //        mMap.addMarker(new MarkerOptions().position(location).title("Marker in Iran"));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 6f));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 14f));
     }
 }

@@ -59,7 +59,7 @@ public class ContactViewHolder extends RecyclerView.ViewHolder {
 
             //weather icon
             String iconCode = item.getDataModel().weather.get(0).getIcon();
-            String iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+            String iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
             Glide.with(weatherIcon)
                     .load(iconUrl)
                     .into(weatherIcon);

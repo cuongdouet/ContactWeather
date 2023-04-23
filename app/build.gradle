@@ -2,17 +2,22 @@ plugins {
     id 'com.android.application'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
+def keys = new Properties()
+file("../keys.properties").withInputStream { keys.load(it) }
 
 android {
     namespace 'com.camellia.contactweather'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.camellia.contactweather"
+        applicationId "com.realestate.crm"
         minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
+
+        resValue "string", "google_maps_key", "${keys.google_maps_api_key}"
+        buildConfigField "String", "OPEN_WEATHER_APP_ID", "\"${keys.open_weather_app_id}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
