@@ -4,5 +4,5 @@ import android.view.View;
 
 public interface OnOptionMenuItemClickListener {
 
-    void onOptionMenuItemClicked(View view, int position);
+  void onOptionMenuItemClicked(View view, int position);
 }

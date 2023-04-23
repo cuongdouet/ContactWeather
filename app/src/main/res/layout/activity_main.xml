@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/myToolBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    app:titleTextColor="@color/white" />
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/myRecyclerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_below="@+id/myToolBar"
+    android:clickable="true"
+    android:clipToPadding="false"
+    android:focusable="true"
+    android:longClickable="true"
+    android:paddingTop="2dp"
+    android:paddingBottom="6dp"
+    android:scrollbars="vertical" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/myToolBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:titleTextColor="@color/white" />
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/floatingButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="16dp"
+    android:src="@drawable/ic_person_add_black_24dp"
+    app:backgroundTint="@color/colorAccent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/myToolBar"
-        android:clickable="true"
-        android:clipToPadding="false"
-        android:focusable="true"
-        android:longClickable="true"
-        android:paddingBottom="6dp"
-        android:paddingTop="2dp"
-        android:scrollbars="vertical" />
+  <TextView
+    android:id="@+id/emptyText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:alpha="0.5"
+    android:text="@string/no_contact_to_show"
+    android:textColor="@color/textColorPrimary"
+    android:visibility="invisible" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_person_add_black_24dp"
-        app:backgroundTint="@color/colorAccent" />
-
-    <TextView
-        android:id="@+id/emptyText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/no_contact_to_show"
-        android:textColor="@color/textColorPrimary"
-        android:visibility="invisible"
-        android:alpha="0.5"/>
-
-    <TextView
-        android:id="@+id/emptyTextSub"
-        android:visibility="invisible"
-        android:layout_marginTop="4dp"
-        android:layout_centerInParent="true"
-        android:alpha="0.5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/emptyText"
-        android:text="@string/emptyTextSub"
-        android:textColor="@color/textColorSecondary" />
+  <TextView
+    android:id="@+id/emptyTextSub"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/emptyText"
+    android:layout_centerInParent="true"
+    android:layout_marginTop="4dp"
+    android:alpha="0.5"
+    android:text="@string/emptyTextSub"
+    android:textColor="@color/textColorSecondary"
+    android:visibility="invisible" />
 
 </RelativeLayout>

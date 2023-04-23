@@ -1,45 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:background="@drawable/custome_ripple">
+
+  <ImageView
+    android:id="@+id/avatar"
+    android:layout_width="56dp"
+    android:layout_height="56dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_margin="8dp"
+    android:src="@drawable/ic_launcher_background" />
+
+  <LinearLayout
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/custome_ripple">
+    android:layout_centerVertical="true"
+    android:layout_toEndOf="@+id/avatar"
+    android:layout_toRightOf="@+id/avatar"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/avatar"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="8dp"
-        android:src="@drawable/ic_launcher_background" />
+    <TextView
+      android:id="@+id/displayName"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Name"
+      android:textColor="@color/textColorPrimary"
+      android:textSize="16sp" />
 
-    <LinearLayout
-        android:layout_toRightOf="@+id/avatar"
-        android:layout_centerVertical="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_toEndOf="@+id/avatar">
+    <TextView
+      android:id="@+id/phoneNumber"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="0999 0000 222"
+      android:textColor="@color/textColorSecondary"
+      android:textSize="13sp" />
 
-        <TextView
-            android:id="@+id/displayName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:textColor="@color/textColorPrimary"
-            android:textSize="16sp" />
+    <View
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/phoneNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0999 0000 222"
-            android:textColor="@color/textColorSecondary"
-            android:textSize="13sp" />
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
+  </LinearLayout>
 </RelativeLayout>

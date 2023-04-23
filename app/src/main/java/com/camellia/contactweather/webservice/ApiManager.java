@@ -9,30 +9,30 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiManager {
 
-    private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
+  private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
 
-    private static ApiManager sInstance = null;
+  private static ApiManager sInstance = null;
 
-    private APIInterface api;
+  private APIInterface api;
 
-    public static ApiManager getInstance() {
-        if (sInstance == null) {
-            sInstance = new ApiManager();
-        }
-        return sInstance;
+  private ApiManager() {
+    Retrofit retrofit = new Retrofit.Builder()
+      .baseUrl(BASE_URL)
+      .addConverterFactory(GsonConverterFactory.create())
+      .build();
+
+    api = retrofit.create(APIInterface.class);
+  }
+
+  public static ApiManager getInstance() {
+    if (sInstance == null) {
+      sInstance = new ApiManager();
     }
+    return sInstance;
+  }
 
-    private ApiManager() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        api = retrofit.create(APIInterface.class);
-    }
-
-    public Call<DataModel> getCurrentWeather(double lat, double lon) {
-        return api.getCurrentWeather(lat, lon, BuildConfig.OPEN_WEATHER_APP_ID);
-    }
+  public Call<DataModel> getCurrentWeather(double lat, double lon) {
+    return api.getCurrentWeather(lat, lon, BuildConfig.OPEN_WEATHER_APP_ID);
+  }
 
 }

@@ -1,15 +1,15 @@
 <resources>
-    <string name="app_name">Contact Weather</string>
-    <string name="appName">Contact Weather</string>
-    <string name="Contacts">Contacts</string>
-    <string name="sync_menu_item">Sync Weather</string>
-    <string name="location_menu">location_menu</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="vertical_ellipsis">&#8942;</string>
-    <string name="change_location">Change Location</string>
-    <string name="delete">Delete</string>
-    <string name="search">Search</string>
-    <string name="emptyStateSearch">No Results</string>
-    <string name="no_contact_to_show">No contact to show</string>
-    <string name="emptyTextSub">You can add contacts from below button</string>
+  <string name="app_name">Contact Weather</string>
+  <string name="appName">Contact Weather</string>
+  <string name="Contacts">Contacts</string>
+  <string name="sync_menu_item">Sync Weather</string>
+  <string name="location_menu">location_menu</string>
+  <string name="title_activity_maps">Map</string>
+  <string name="vertical_ellipsis">&#8942;</string>
+  <string name="change_location">Change Location</string>
+  <string name="delete">Delete</string>
+  <string name="search">Search</string>
+  <string name="emptyStateSearch">No Results</string>
+  <string name="no_contact_to_show">No contact to show</string>
+  <string name="emptyTextSub">You can add contacts from below button</string>
 </resources>

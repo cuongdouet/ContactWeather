@@ -4,26 +4,26 @@ import com.google.gson.annotations.SerializedName;
 
 public class Coord {
 
-    @SerializedName("lon")
-    private float longitude;
+  @SerializedName("lon")
+  private float longitude;
 
-    @SerializedName("lat")
-    private float latitude;
+  @SerializedName("lat")
+  private float latitude;
 
-    public float getLongitude() {
-        return longitude;
-    }
+  public float getLongitude() {
+    return longitude;
+  }
 
-    public void setLongitude(float longitude) {
-        this.longitude = longitude;
-    }
+  public void setLongitude(float longitude) {
+    this.longitude = longitude;
+  }
 
-    public float getLatitude() {
-        return latitude;
-    }
+  public float getLatitude() {
+    return latitude;
+  }
 
-    public void setLatitude(float latitude) {
-        this.latitude = latitude;
-    }
+  public void setLatitude(float latitude) {
+    this.latitude = latitude;
+  }
 
 }

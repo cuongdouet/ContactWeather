@@ -2,5 +2,5 @@ package com.camellia.contactweather.main;
 
 public interface OnItemClickListener {
 
-    void onItemClicked(int position);
+  void onItemClicked(int position);
 }

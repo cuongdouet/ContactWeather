@@ -2,11 +2,12 @@ package com.camellia.contactweather.main;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.camellia.contactweather.R;
 import com.camellia.contactweather.contacts.DataBaseHelper;
@@ -18,81 +19,81 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
+  private GoogleMap mMap;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_maps);
+    // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+    SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+      .findFragmentById(R.id.map);
+    mapFragment.getMapAsync(this);
 
-        setSupportActionBar((Toolbar) findViewById(R.id.locationToolBar));
-        setTitle("Location");
+    setSupportActionBar((Toolbar) findViewById(R.id.locationToolBar));
+    setTitle("Location");
 
-    }
+  }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.location_menu, menu);
-        return true;
-    }
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    getMenuInflater().inflate(R.menu.location_menu, menu);
+    return true;
+  }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.confirm_location:
-                LatLng target = mMap.getCameraPosition().target;
-                Toast.makeText(this, "lat: " + target.latitude + "\nlon: " + target.longitude, Toast.LENGTH_SHORT).show();
-                Intent intent = getIntent();
-                String contactName = intent.getStringExtra("displayName"); // will return "FirstKeyValue"
-                String contactPhone = intent.getStringExtra("phone");
-                String avatar = intent.getStringExtra("avatar");
-                boolean isUpdate = intent.getBooleanExtra("isUpdate", false);
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case R.id.confirm_location:
+        LatLng target = mMap.getCameraPosition().target;
+        Toast.makeText(this, "lat: " + target.latitude + "\nlon: " + target.longitude, Toast.LENGTH_SHORT).show();
+        Intent intent = getIntent();
+        String contactName = intent.getStringExtra("displayName"); // will return "FirstKeyValue"
+        String contactPhone = intent.getStringExtra("phone");
+        String avatar = intent.getStringExtra("avatar");
+        boolean isUpdate = intent.getBooleanExtra("isUpdate", false);
 
-                if (isUpdate) {
-                    DataBaseHelper.getInstance(getApplicationContext()).updateContactLocation(contactPhone, target.latitude, target.longitude, avatar);
-                    DataBaseHelper.getInstance(getApplicationContext()).updateContactCity(contactPhone, null);
-                } else {
-                    DataBaseHelper.getInstance(getApplicationContext()).addContact(contactName, contactPhone, target.latitude, target.longitude, avatar);
-                }
-
-                finish();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-        mMap = googleMap;
-        LatLng location;
-
-        boolean isUpdate = getIntent().getBooleanExtra("isUpdate", false);
         if (isUpdate) {
-            double lat = getIntent().getDoubleExtra("latitude", 21.028333);
-            double lon = getIntent().getDoubleExtra("longitude", 105.854167);
-            location = new LatLng(lat, lon);
+          DataBaseHelper.getInstance(getApplicationContext()).updateContactLocation(contactPhone, target.latitude, target.longitude, avatar);
+          DataBaseHelper.getInstance(getApplicationContext()).updateContactCity(contactPhone, null);
         } else {
-            location = new LatLng(21.028333, 105.854167);
+          DataBaseHelper.getInstance(getApplicationContext()).addContact(contactName, contactPhone, target.latitude, target.longitude, avatar);
         }
 
-        // Add a marker in Iran and move the camera
-//        mMap.addMarker(new MarkerOptions().position(location).title("Marker in Iran"));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 14f));
+        finish();
+        break;
     }
+    return super.onOptionsItemSelected(item);
+  }
+
+  /**
+   * Manipulates the map once available.
+   * This callback is triggered when the map is ready to be used.
+   * This is where we can add markers or lines, add listeners or move the camera. In this case,
+   * we just add a marker near Sydney, Australia.
+   * If Google Play services is not installed on the device, the user will be prompted to install
+   * it inside the SupportMapFragment. This method will only be triggered once the user has
+   * installed Google Play services and returned to the app.
+   */
+
+  @Override
+  public void onMapReady(GoogleMap googleMap) {
+
+    mMap = googleMap;
+    LatLng location;
+
+    boolean isUpdate = getIntent().getBooleanExtra("isUpdate", false);
+    if (isUpdate) {
+      double lat = getIntent().getDoubleExtra("latitude", 21.028333);
+      double lon = getIntent().getDoubleExtra("longitude", 105.854167);
+      location = new LatLng(lat, lon);
+    } else {
+      location = new LatLng(21.028333, 105.854167);
+    }
+
+    // Add a marker in Iran and move the camera
+//        mMap.addMarker(new MarkerOptions().position(location).title("Marker in Iran"));
+    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 14f));
+  }
 }
